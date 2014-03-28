@@ -1,5 +1,5 @@
 setwd("/media/Volume/git-repos/kaggle/titanic/tree/")
-source("prepare-data.R")
+source("../prepare-data.R")
 source("cv.R")
 
 
@@ -29,7 +29,7 @@ G <- hypergrid(k,
 # perform CV
 ###################################################
 
-#result <- NA
+result <- NA
 
 # 57600 = 300 * 192
 # 39600 = 900 * 44
@@ -46,12 +46,12 @@ for(i in 1:44) {
   )
   
   if(!is.na(result)) {
-    #result <- rbind(result, subResult)
+    result <- rbind(result, subResult)
   } else {
-    #result <- subResult
+    result <- subResult
   }
   
-  #save.image("data/ctree.grid.search.2.RData")
+  save.image("../data/ctree.grid.search.RData")
 }
 
 ###################################################
