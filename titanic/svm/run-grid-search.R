@@ -48,9 +48,9 @@ save.image("../data/svm.grid.search.RData")
 
 ##################################################################################################################
 
-data <- read_data(df_train, df_test, shuffle=F.LSE)
+data <- read_data(df_train, df_test, shuffle=FALSE)
 
 m <- ksvm(formula, data=data$train, kernel="tanhdot", C=100, kpar=list(scale=0.01, offset=-1.2))
 
 res <- data.frame(PassengerId = df_test$PassengerId, Survived = as.numeric(as.character(predict(m, data$test))))
-write.table(res, "result.txt", row.names=F.LSE, sep=",")
+write.table(res, "result.txt", row.names=FALSE, sep=",")
