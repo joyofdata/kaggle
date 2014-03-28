@@ -81,7 +81,7 @@ for(i in 1:nrow(r)) {
      )
   )
   
-  v[i] <- sum(t@predict_response() == data$train$survived)/nrow(data$train)
+  v[i] <- sum(t@predict_response() != data$train$survived)/nrow(data$train)
 }
 r$err_all <- v
 
